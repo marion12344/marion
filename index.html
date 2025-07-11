@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jollibee - Baliwag</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff8f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Login Page */
+    #login-page {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom right, #fff3e0, #ffe0b2);
+    }
+
+    .login-box {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .login-box h2 {
+      margin-bottom: 25px;
+      color: #d7232d;
+      font-size: 24px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .login-box button {
+      background-color: #d7232d;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+
+    .login-box button:hover {
+      background-color: #b71c1c;
+    }
+
+    .page {
+      display: none;
+    }
+
+    header {
+      background-color: #d7232d;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #fbc02d;
+      padding: 12px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #d7232d;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #b71c1c;
+    }
+
+    .hero {
+      background-image: url('https://gadaboutprincess.com/wp-content/uploads/2023/05/1684538445.jpg');
+      background-size: cover;
+      background-position: top;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 36px;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    .content {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .content h2 {
+      color: #d7232d;
+    }
+
+    .menu-section ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .menu-section li {
+      width: 220px;
+      background-color: #fff3e0;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 15px;
+    }
+
+    .menu-section img {
+      width: 100%;
+      border-radius: 6px;
+      object-fit: cover;
+      max-height: 180px;
+      margin-top: 10px;
+    }
+
+    .product-section ul {
+      list-style: none;
+      padding: 0;
+      max-width: 800px;
+      margin: auto;
+      text-align: left;
+    }
+
+    .product-section li {
+      background-color: #fff3e0;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .product-section h3 {
+      color: #d7232d;
+      margin-top: 0;
+    }
+
+    .product-section a {
+      color: #d7232d;
+      font-weight: bold;
+      text-decoration: underline;
+      transition: color 0.3s;
+    }
+
+    .product-section a:hover {
+      color: #b71c1c;
+    }
+
+    footer {
+      background-color: #d7232d;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .menu-section ul,
+      .product-section ul {
+        padding: 0 10px;
+      }
+
+      .menu-section li {
+        width: 100%;
+      }
+
+      nav a {
+        margin: 0 10px;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Page -->
+  <div id="login-page">
+    <div class="login-box">
+      <h2>Login to Jollibee</h2>
+      <input type="text" id="username" placeholder="Enter Username" />
+      <input type="password" id="password" placeholder="Enter Password" />
+      <button onclick="login()">Login</button>
+      <p id="error-msg" style="color: red; margin-top: 10px;"></p>
+    </div>
+  </div>
+
+  <!-- Home Page -->
+  <div id="home-page" class="page">
+    <header><h1>Welcome to Jollibee Baliwag</h1></header>
+    <nav>
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('about')">About Us</a>
+      <a onclick="showPage('menu')">Menu</a>
+      <a onclick="showPage('product')">Products</a>
+    </nav>
+    <div class="hero"></div>
+    <div class="content">
+      <h2>Flavorful Joy in Every Bite</h2>
+      <p>Jollibee brings joy and flavorful moments to every Filipino family.</p>
+    </div>
+    <footer>&copy; 2025 Jollibee - Baliwag. All rights reserved.</footer>
+  </div>
+
+  <!-- About Page -->
+  <div id="about-page" class="page">
+    <header><h1>About Jollibee Baliwag</h1></header>
+    <nav>
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('about')">About Us</a>
+      <a onclick="showPage('menu')">Menu</a>
+      <a onclick="showPage('product')">Products</a>
+    </nav>
+    <div class="content">
+      <h2>Jollibee History</h2>
+      <p>Jollibee began as a small ice cream parlor in 1975 founded by Tony Tan Caktiong in Quezon City, Philippines...</p>
+      <p>Throughout the years, Jollibee has become more than just a food chain; it has become a symbol of Filipino pride and joy...</p>
+      <p>Jollibee’s commitment to excellence, customer satisfaction, and spreading happiness has fueled its massive growth...</p>
+      <p>But what truly makes Jollibee different is its culture. With a strong emphasis on values like family, hard work, and cheerful service...</p>
+      <p><strong>At Jollibee, Bida ang Saya!</strong></p>
+    </div>
+    <footer>&copy; 2025 Jollibee - Baliwag. All rights reserved.</footer>
+  </div>
+
+  <!-- Menu Page -->
+  <div id="menu-page" class="page">
+    <header><h1>jolly Menu</h1></header>
+    <nav>
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('about')">About Us</a>
+      <a onclick="showPage('menu')">Menu</a>
+      <a onclick="showPage('product')">Products</a>
+    </nav>
+    <div class="menu-section">
+      <ul>
+        <li><strong>1-pc Chickenjoy</strong><br><img src="https://queen.jollibee.com.ph/2022/01/1pc-Chickenjoy-Solo.png"></li>
+        <li><strong>2-pc Chickenjoy</strong><br><img src="https://www.fastfoodmenuprices.com/wp-content/uploads/2020/05/Jollibee-Fried-Chicken-300x300.png"></li>
+        <li><strong>6-pc Chickenjoy Bucket</strong><br><img src="https://cdn.shopify.com/s/files/1/0580/3245/5858/products/6-pc-chickenjoy-bucket.jpg?v=1635459184"></li>
+        <li><strong>Yumburger</strong><br><img src="https://queen.jollibee.com.ph/2022/01/Yumburger-Solo.png"></li>
+        <li><strong>Champ Burger</strong><br><img src="https://www.rankthemag.ph/wp-content/uploads/2020/10/Bacon-Champ-2065x1500.jpg"></li>
+        <li><strong>Jolly Spaghetti w/ Chicken</strong><br><img src="https://cdn.shopify.com/s/files/1/0580/3245/5858/products/1PcChickenjoy_Spaghetti.jpg?v=1635459465"></li>
+        <li><strong>Jolly Spaghetti</strong><br><img src="https://jollibee-menu.com/wp-content/uploads/2024/05/Jolly-Spaghetti-Solo.png"></li>
+      </ul>
+    </div>
+    <footer>&copy; 2025 Jollibee - Baliwag. All rights reserved.</footer>
+  </div>
+
+  <!-- Product Page -->
+  <div id="product-page" class="page">
+    <header><h1>Our Products & Services</h1></header>
+    <nav>
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('about')">About Us</a>
+      <a onclick="showPage('menu')">Menu</a>
+      <a onclick="showPage('product')">Products</a>
+    </nav>
+    <div class="content product-section">
+      <h2>Explore Our Delicious Offers</h2>
+      <ul>
+        <li>
+          <h3>Family Meal Bundles</h3>
+          <p>Perfect for sharing, our bundles include Chickenjoy, Jolly Spaghetti, rice, and drinks—ideal for barkadas and family gatherings.</p>
+          <a href="#">Learn more</a>
+        </li>
+        <li>
+          <h3>Party Packages</h3>
+          <p>Hosting a celebration? Choose from our party sets complete with food trays, party favors, and Jollibee mascots!</p>
+          <a href="#">Learn more</a>
+        </li>
+        <li>
+          <h3>Catering Services</h3>
+          <p>We cater for birthdays, office parties, and events. Enjoy your Jollibee favorites at your venue, hassle-free.</p>
+          <a href="#">Learn more</a>
+        </li>
+        <li>
+          <h3>Online Delivery</h3>
+          <p>Order through the Jollibee App or website and get your favorites delivered straight to your door—hot and fresh.</p>
+          <a href="#">Learn more</a>
+        </li>
+        <li>
+          <h3>Takeout & Drive-Thru</h3>
+          <p>Quick and convenient service so you can enjoy your Chickenjoy and more on the go.</p>
+          <a href="#">Learn more</a>
+        </li>
+      </ul>
+    </div>
+    <footer>&copy; 2025 Jollibee - Baliwag. All rights reserved.</footer>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const errorMsg = document.getElementById("error-msg");
+
+      if (username === "admin" && password === "password") {
+        document.getElementById("login-page").style.display = "none";
+        showPage('home');
+      } else {
+        errorMsg.textContent = "Invalid username or password!";
+      }
+    }
+
+    function showPage(page) {
+      const pages = ['home-page', 'about-page', 'menu-page', 'product-page'];
+      pages.forEach(p => document.getElementById(p).style.display = 'none');
+      document.getElementById(`${page}-page`).style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
